@@ -7,6 +7,8 @@ class LtfmProductFormController extends State<LtfmProductFormView>
   static late LtfmProductFormController instance;
   late LtfmProductFormView view;
 
+  int price = 0;
+
   @override
   void initState() {
     instance = this;
