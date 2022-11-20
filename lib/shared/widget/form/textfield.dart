@@ -6,7 +6,9 @@ class QTextField extends StatefulWidget {
   final String? hint;
   final String? Function(String?)? validator;
   final bool obscure;
+  final TextInputType keyboardType;
   final Function(String) onChanged;
+  final int maxLines;
 
   const QTextField({
     Key? key,
@@ -16,6 +18,8 @@ class QTextField extends StatefulWidget {
     this.hint,
     required this.onChanged,
     this.obscure = false,
+    this.keyboardType = TextInputType.text,
+    this.maxLines = 1,
   }) : super(key: key);
 
   @override
@@ -33,7 +37,9 @@ class _QTextFieldState extends State<QTextField> {
     return TextFormField(
       initialValue: widget.value,
       validator: widget.validator,
+      keyboardType: widget.keyboardType,
       maxLength: 20,
+      maxLines: widget.maxLines,
       obscureText: widget.obscure,
       decoration: InputDecoration(
         labelText: widget.label,

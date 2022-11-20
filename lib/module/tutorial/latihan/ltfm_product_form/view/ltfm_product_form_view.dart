@@ -13,11 +13,12 @@ class LtfmProductFormView extends StatefulWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.all(10.0),
-            child: TextButton(
+            child: ElevatedButton(
               onPressed: () => controller.save(),
               child: const Text('Save'),
             ),
-          )
+          ),
+
           //! 5. Tambahkan tombol Save
           //! 6. Beri padding/margin pada tombol Save sebanyak 10
           //! 7. Panggil controller.save() ketika tombol di klik
@@ -28,23 +29,31 @@ class LtfmProductFormView extends StatefulWidget {
           padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
-              Column(
-                children: [
-                  QTextField(
-                    label: "Product Name",
-                    value: "Pisang",
-                    onChanged: (value) {},
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    children: [
+                      QTextField(
+                        label: "Email",
+                        hint: "Your email",
+                        onChanged: (value) {},
+                      ),
+                      QTextField(
+                        label: "Price",
+                        hint: 'Enter your product price',
+                        keyboardType: TextInputType.number,
+                        onChanged: (value) {},
+                      ),
+                      QTextField(
+                        label: "Description",
+                        hint: "Enter your product description",
+                        maxLines: 15,
+                        onChanged: (value) {},
+                      ),
+                    ],
                   ),
-                  QTextField(
-                    label: "Price",
-                    value: controller.price.toString(),
-                    validator: Validator.number.,
-                    hint: Validator.number(controller.price.toString()),
-                    onChanged: (value) {
-                      controller.setState(() {});
-                    },
-                  ),
-                ],
+                ),
               ),
               //! 1. Buat sebuah Card, tambahkan Column di dalamnya
               //! 2. Tambahkan padding.all 20.0
